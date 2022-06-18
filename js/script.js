@@ -1,17 +1,27 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
+const clouds = document.querySelector('.clouds');
+const cloudsplus = document.querySelector('.cloudsplus');
+const reset = document.querySelector('.button')
+
 
 const jump = () => {
     mario.classList.add('jump')
     setTimeout(() => {
         mario.classList.remove('jump')
     }, 500)
+}
+
+const resetButton = () => {
+    reset.classList.remove('hidden')
 
 }
 
 const gameLoop = setInterval(() => {
     const pipePosition = pipe.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
+    const cloudsPosition = clouds.offsetLeft;
+    const cloudsplusPosition = cloudsplus.offsetLeft;
 
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition <= 80) {
         pipe.style.animation = 'none';
@@ -23,9 +33,19 @@ const gameLoop = setInterval(() => {
         mario.src = './images/game-over.png';
         mario.style.width = '75px';
         mario.style.marginLeft = '50px';
-        
-        clearInterval(gameLoop)
+
+        clouds.style.animation = 'none';
+        clouds.style.left = `${cloudsPosition}px`;
+
+        cloudsplus.style.animation = 'none';
+        cloudsplus.style.left = `${cloudsplusPosition}px`;
+
+        clearInterval(gameLoop);
+        resetButton()
+
+
     }
 }, 10)
 
 document.addEventListener('keydown', jump);
+
