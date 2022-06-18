@@ -1,62 +1,69 @@
 .gameboard {
-    width: 50%;
-    height: 500px;
-    border-bottom: 15px solid rgb(35, 160, 35);
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(#87ceeb, #e0f6ff);
-}
-
-.clouds {
-    position: absolute;
-    width: 550px;
-    animation: clouds-animation 20s infinite linear;
-}
-
-.cloudsplus{
-    position: absolute;
-    width: 550px;
-    animation: cloudsplus-animation 30s infinite linear;
-}
-
-.pipe {
-    position: absolute;
-    bottom: 0;
-    height: 80px;
-    width: 80px;
-    animation: pipe-animation 2s infinite linear;
+  width: 50%;
+  height: 500px;
+  border-bottom: 15px solid rgb(35, 160, 35);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#87ceeb, #e0f6ff);
 }
 
 .mario {
-    position: absolute;
-    width: 150px;
-    bottom: 0;
+  position: absolute;
+  width: 150px;
+  bottom: 0;
+}
+
+.standing-mario {
+  position: absolute;
+  width: 140px;
+  bottom: -5px;
+  left: 20px;
 }
 
 .mario.jump {
-    animation: mario-jump 500ms ease-out;
+  animation: mario-jump 500ms ease-out;
 }
 
-.button{
-    position: absolute;
-    left: 355px;
-    bottom: 10px;
-    background-color: #F2F2F2;
-    border-radius: 20px;
-    display: flex;
-    width: 250px;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
+.pipe {
+  position: absolute;
+  bottom: 0;
+  height: 80px;
+  width: 80px;
+  /* animation: pipe-animation 2s infinite linear; */
 }
 
-.button.hidden{
-    display:none;
+.clouds {
+  position: absolute;
+  width: 550px;
+  /* animation: clouds-animation 20s infinite linear; */
 }
 
-.button .reset{
-    font-size: 50px;
-    color: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.button {
+  position: absolute;
+  left: 355px;
+  bottom: 10px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  display: flex;
+  width: 250px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button .play {
+  font-size: 40px;
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.button .reset {
+  font-size: 50px;
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,20 +1,34 @@
+function baseGame(){
+    play.addEventListener('click', function(){
+        pipe.style.animation = 'pipe-animation 2s infinite linear'
+        play.classList.add('hidden')
+        button.classList.add('hidden')
+        console.log('oi')
+    })
+}
+
+
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
 const clouds = document.querySelector('.clouds');
 const cloudsplus = document.querySelector('.cloudsplus');
-const reset = document.querySelector('.button')
+const button = document.querySelector('.button')
+const reset = document.querySelector('.reset')
+const play = document.querySelector('.play')
 
 
 const jump = () => {
     mario.classList.add('jump')
     setTimeout(() => {
         mario.classList.remove('jump')
+
     }, 500)
 }
 
-const resetButton = () => {
-    reset.classList.remove('hidden')
 
+const playButton = () =>{
+    button.classList.remove('hidden')
+    play.classList.remove('hidden')
 }
 
 const gameLoop = setInterval(() => {
@@ -40,12 +54,31 @@ const gameLoop = setInterval(() => {
         cloudsplus.style.animation = 'none';
         cloudsplus.style.left = `${cloudsplusPosition}px`;
 
-        clearInterval(gameLoop);
+        const resetButton = () => {    
+            
+            button.classList.remove('hidden')
+            reset.classList.remove('hidden')
+            reset.addEventListener('click', function(){
+                document.addEventListener('keydown', jump());     
+                button.classList.add('hidden')
+                reset.classList.add('hidden')
+                pipe.style.left = ''
+                mario.style.bottom = ''
+                mario.src = './images/mario.gif'
+                mario.style.width = '150px'
+                mario.style.marginLeft =''
+                pipe.style.animation = 'pipe-animation 2s infinite linear'
+                marioPosition
+                console.log('oi')
+                          
+            })
+                   
+        }
         resetButton()
-
 
     }
 }, 10)
 
+baseGame()
 document.addEventListener('keydown', jump);
 
