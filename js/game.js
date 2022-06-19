@@ -1,9 +1,3 @@
-// 1 - pegar os dom dos elementos do game. standing mario, mario, pipe, clouds e botões jogar/reset - check
-// 2 - iniciar animação com evento de clique no botão jogar
-// 3 - definir colisões verticais e horizontais
-// 4 - encerrar as animações quando acontecer uma colisão e mostrar o botão de reset
-// 5 - reiniciar o game com o botão reset
-
 const standingMario = document.querySelector(".standing-mario");
 const mario = document.querySelector(".mario");
 const pipe = document.querySelector(".pipe");
@@ -11,6 +5,7 @@ const clouds = document.querySelector(".clouds");
 const button = document.querySelector(".button");
 const playButton = document.querySelector(".play");
 const resetButton = document.querySelector(".reset");
+const message = document.querySelector(".message")
 
 playButton.onclick = function iniciarGame() {
   standingMario.classList.add("hidden");
@@ -45,8 +40,7 @@ const gameLoop = setInterval(() => {
     clouds.style.animation = "none";
     clouds.style.left = `${cloudsPosition}px`;
 
-    button.classList.remove("hidden");
-    resetButton.classList.remove("hidden");
+    message.classList.remove('hidden');
   }
 }, 20);
 
