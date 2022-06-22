@@ -6,6 +6,7 @@ const button = document.querySelector(".button");
 const playButton = document.querySelector(".play");
 const resetButton = document.querySelector(".reset");
 const message = document.querySelector(".message")
+const score = document.querySelector(".score")
 
 playButton.onclick = function iniciarGame() {
   standingMario.classList.add("hidden");
@@ -19,6 +20,10 @@ playButton.onclick = function iniciarGame() {
   clouds.style.animation = "clouds-animation 20s infinite linear";
 };
 
+resetButton.onclick = () => {
+  location.reload()
+}
+
 const gameLoop = setInterval(() => {
   const pipePosition = pipe.offsetLeft;
   const marioPosition = +window
@@ -26,7 +31,20 @@ const gameLoop = setInterval(() => {
     .bottom.replace("px", "");
   const cloudsPosition = clouds.offsetLeft;
 
+  //TO-DO finish the score system.
+  // let scoreUp = document.querySelector('#score-on-screen')
+  // let count = 1
+
+  // setInterval(function (){
+  //   if (pipePosition <= 120 && pipePosition > 0 && marioPosition > 80) {
+  //     let = scoreUp.innerHTML = count++ 
+  //   }
+  // }, 500)
+
+  
+
   if (pipePosition <= 120 && pipePosition > 0 && marioPosition <= 80) {
+
     pipe.style.animation = "none";
     pipe.style.left = `${pipePosition}px`;
 
@@ -40,9 +58,12 @@ const gameLoop = setInterval(() => {
     clouds.style.animation = "none";
     clouds.style.left = `${cloudsPosition}px`;
 
-    message.classList.remove('hidden');
+    button.classList.remove('hidden')
+    resetButton.classList.remove('hidden')
   }
-}, 20);
+
+}, 20
+);
 
 const jump = () => {
   mario.classList.add("jump");
