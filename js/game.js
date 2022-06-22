@@ -40,9 +40,7 @@ const gameLoop = setInterval(() => {
   //     let = scoreUp.innerHTML = count++ 
   //   }
   // }, 500)
-
   
-
   if (pipePosition <= 120 && pipePosition > 0 && marioPosition <= 80) {
 
     pipe.style.animation = "none";
